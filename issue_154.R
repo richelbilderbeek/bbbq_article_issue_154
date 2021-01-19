@@ -43,7 +43,7 @@ tmhmm_filename <- "UP000005640.tmhmm"
 
 if (!file.exists(tmhmm_filename)) {
   tmhmm::run_tmhmm_to_file(
-    fasta_filename = fasta_filename,
+    fasta_filename = fasta_no_u_filename,
     tmhmm_filename = tmhmm_filename
   )
 }
@@ -53,4 +53,3 @@ expect_equal(
   nrow(pureseqtmr::load_fasta_file_as_tibble(fasta_no_u_filename)),
   nrow(pureseqtmr::load_fasta_file_as_tibble(tmhmm_filename))
 )
-

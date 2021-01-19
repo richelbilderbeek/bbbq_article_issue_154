@@ -39,3 +39,5 @@ vignettes/*.pdf
 .Renviron
 *.fasta
 *.gz
+*.zip
+20210119/
