@@ -16,7 +16,7 @@ if (!file.exists(fasta_filename)) {
 }
 expect_true(file.exists(fasta_filename))
 
-fasta_no_u_filename <- "UP000005640.fasta"
+fasta_no_u_filename <- "UP000005640_no_u.fasta"
 
 if (!file.exists(fasta_no_u_filename)) {
   if (1 == 2) {
@@ -31,7 +31,7 @@ if (!file.exists(fasta_no_u_filename)) {
   }
 
   # Remove all proteins with a selenocysteine
-  t <- pureseqtmr::load_fasta_file_as_tibble_cpp(fasta_filename)
+  t <- pureseqtmr::load_fasta_file_as_tibble(fasta_filename)
   # Remove the Us
   t <- t[ -stringr::str_which(string = t$sequence, pattern = "U"), ]
   nrow(t)
